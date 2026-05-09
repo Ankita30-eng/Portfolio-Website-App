@@ -1,0 +1,82 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>payal Portfolio</title>
+  <!-- Correct Django static link for CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <h1 class="logo">Payal Kumari</h1>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home" class="hero">
+    <!-- Use Django static for image -->
+    <img src="{%static 'images/payal.jpg' %}" alt="Ankita Garnayak" class="profile-img">
+    <h2>Hi, I'm <span>Payal Kumari</span></h2>
+    <p>From <b>Jharkhand</b>, currently pursuing <b>B.Tech in CSE (IoT)</b> at <b>GITA Autonomous College</b>.</p>
+    <p>A passionate learner skilled in <b>Python, Java, Data Analytics, Machine Learning, SQL, Power BI, and Excel</b>.</p>
+    
+    <h2>My Skills</h2>
+    <div class="skills-list">
+      <span>Python</span>
+      <span>Java</span>
+      <span>Data Analytics</span>
+      <span>Machine Learning</span>
+      <span>SQL</span>
+      <span>Power BI</span>
+      <span>Excel</span>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am <b>Payal Kumari</b> from Jharkhand, currently pursuing <b>B.Tech in Computer Science & Engineering (IoT)</b> at GITA Autonomous College.</p>
+    <p>I am passionate about <b>Data Analytics, Machine Learning, and Programming</b>. My goal is to become a professional software engineer and work on innovative projects in AI and IoT.</p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>My Projects</h2>
+    <ul>
+      <li><b>Student Performance Analysis</b> – Data Analytics project using Python & Power BI.</li>
+      <li><b>IoT-based Smart Home</b> – Automation system with sensors & cloud integration.</li>
+      <li><b>Machine Learning Classifier</b> – Built a model to classify datasets using ML techniques.</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+  <h2>Contact Me</h2>
+    <form class="contact-form" method="POST" action="{% url 'contact' %}">
+      {% csrf_token %}
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="number" placeholder="Your Phone Number" required>
+      <textarea rows="5" name="content" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+  </form>
+</section>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Payal Kumari | Portfolio Website</p>
+  </footer>
+</body>
+</html>
